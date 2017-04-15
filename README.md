@@ -1,2 +1,3 @@
 # 4XSpaceGame
-repo for all files in the 4X Space Game Tutorial
+Repo for all files in the 4X Space Game Tutorial
+www.shadowplaycoding.com
