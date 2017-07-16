@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Systems>
+  <System ID ="Sol">
+    <Name>Sol</Name>
+    <PlanetNum>8</PlanetNum>
+    <Planets>
+      <Planet planetID ="Mercury">
+        <Type>Barren</Type>
+      </Planet>
+      <Planet planetID ="Venus">
+        <Type>Barren</Type>
+      </Planet>
+      <Planet planetID ="Earth">
+        <Type>Terran</Type>
+      </Planet>
+      <Planet planetID ="Mars">
+        <Type>Barren</Type>
+      </Planet>
+      <Planet planetID ="Jupiter">
+        <Type>Gas Giant</Type>
+      </Planet>
+      <Planet planetID ="Saturn">
+        <Type>Gas Giant</Type>
+      </Planet>
+      <Planet planetID ="Uranus">
+        <Type>Gas Giant</Type>
+      </Planet>
+      <Planet planetID ="Neptune">
+        <Type>Gas Giant</Type>
+      </Planet>
+    </Planets>
+  </System>
+</Systems>

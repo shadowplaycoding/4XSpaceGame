@@ -1,0 +1,40 @@
+using UnityEngine;
+using System.Collections;
+
+public class Galaxy : MonoBehaviour {
+
+    // TODO: Have these values import from user settings
+    public int numberOfStars = 300;
+    public int maximumRadius = 100;
+
+	// Use this for initialization
+	void Start () {
+
+        for (int i = 0; i < numberOfStars; i++)
+        {
+            GameObject starGO = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+
+            float distance = Random.Range(0, maximumRadius);
+            float angle = Random.Range(0, 2 * Mathf.PI);
+
+            Vector3 cartPosition = new Vector3(distance * Mathf.Cos(angle), 0, distance * Mathf.Sin(angle));
+
+            starGO.transform.position = cartPosition;        
+
+        }
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+	
+	/*
+        Copyright Shadowplay Coding 2016 - see www.shadowplaycoding.com for licensing details
+        Removing this comment forfits any rights given to the user under licensing.
+	*/
+	
+}
+
+
