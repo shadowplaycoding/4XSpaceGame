@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,7 +9,8 @@ public class GUIManagementScript : MonoBehaviour {
 
     public List<GameObject> namePlates;
 
-    
+    public GameObject planetPanel;
+    public GameObject starBasePanel;
 
     void OnEnable()
     {

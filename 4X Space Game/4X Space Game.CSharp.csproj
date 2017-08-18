@@ -89,9 +89,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Scripts\Scripts_for_part_23\P023_Planet.cs" />
-    <Compile Include="..\Scripts\Scripts_for_part_23\P023_SolarSystem.cs" />
-    <Compile Include="..\Scripts\Scripts_for_part_23\P023_StarBase.cs" />
+    <Compile Include="..\..\..\OneDrive\ShadowPlay\Scripts\Scripts_for_part_24\P024_CloseUI.cs" />
+    <Compile Include="..\..\..\OneDrive\ShadowPlay\Scripts\Scripts_for_part_24\P024_GUIManagementScript.cs" />
+    <Compile Include="..\..\..\OneDrive\ShadowPlay\Scripts\Scripts_for_part_24\P024_SolarSystem.cs" />
     <Compile Include="Assets\Scripts\Calculations\PositionMath.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\Data Handlers\RomanNumerals.cs" />
@@ -101,10 +101,11 @@
     <Compile Include="Assets\Scripts\Empires\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Empires\Resources.cs" />
     <Compile Include="Assets\Scripts\Empires\Ship.cs" />
+    <Compile Include="Assets\Scripts\Empires\StarBase.cs" />
     <Compile Include="Assets\Scripts\Space\Galaxy.cs" />
+    <Compile Include="Assets\Scripts\Space\Planet.cs" />
     <Compile Include="Assets\Scripts\Space\SpaceObjects.cs" />
     <Compile Include="Assets\Scripts\Space\Star.cs" />
-    <Compile Include="Assets\Scripts\UI\GUIManagementScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Data\Name_Lists\Systems\starNames1.txt" />

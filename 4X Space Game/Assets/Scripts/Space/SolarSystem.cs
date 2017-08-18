@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.UI;
 
 public class SolarSystem : MonoBehaviour {
@@ -21,6 +23,8 @@ public class SolarSystem : MonoBehaviour {
     public Material starOwnedMaterial;
     public Material planetColonisedMaterial;
 
+    Dictionary<Planet, GameObject> planetToGameObjectMap;
+
     void OnEnable()
     {
         SolarSystemInstance = this;
@@ -32,8 +36,9 @@ public class SolarSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -49,10 +54,26 @@ public class SolarSystem : MonoBehaviour {
             {
                 Star star = Galaxy.GalaxyInstance.ReturnStarFromGameObject(hit.transform.gameObject);
                 starPosition = hit.transform.position;
-                Debug.Log("This Star is Called: " + star.starName + "\n" + "It Has " + star.numberOfPlanets + " Planets");
+                //Debug.Log("This Star is Called: " + star.starName + "\n" + "It Has " + star.numberOfPlanets + " Planets");
 
                 Galaxy.GalaxyInstance.DestroyGalaxy();
                 CreateSolarSystem(star);
+            }
+
+            if (Input.GetMouseButtonDown(0) && Galaxy.GalaxyInstance.galaxyView == false)
+            {
+                Planet planet = ReturnPlanetFromGameObject(hit.transform.gameObject);
+
+                if (planet != null)
+                {
+                    Debug.Log(planet.planetName + " " + planet.planetType);
+                    GUIManagementScript.GUIManagerInstance.planetPanel.SetActive(true);
+
+                    if (planet.starBase != null)
+                    {
+                        GUIManagementScript.GUIManagerInstance.starBasePanel.SetActive(true);
+                    }
+                }
             }
         }
         else
@@ -65,6 +86,8 @@ public class SolarSystem : MonoBehaviour {
     // This method creates the solar system view after a star is clicked on in the galaxy view
     public void CreateSolarSystem(Star star)
     {
+        planetToGameObjectMap = new Dictionary<Planet, GameObject>();
+
         CameraController.cameraController.ResetCamera();
 
         Galaxy.GalaxyInstance.selectionIcon.SetActive(false);
@@ -103,6 +126,8 @@ public class SolarSystem : MonoBehaviour {
             {
                 CreateStarBase(planet, planetGO);
             }
+
+            planetToGameObjectMap.Add(planet, planetGO);
         }
 
         galaxyViewButton.interactable = true;
@@ -131,6 +156,8 @@ public class SolarSystem : MonoBehaviour {
         CameraController.cameraController.maxZoom = storeMaxZoom;
 
         GUIManagementScript.GUIManagerInstance.namePlates.Clear();
+        GUIManagementScript.GUIManagerInstance.planetPanel.SetActive(false);
+        GUIManagementScript.GUIManagerInstance.starBasePanel.SetActive(false);
 
     }
 
@@ -148,6 +175,21 @@ public class SolarSystem : MonoBehaviour {
         starBaseGO.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         starBaseGO.transform.SetParent(planetGO.transform);
         starBaseGO.transform.localPosition = new Vector3(0.6f, 0.6f, 0.6f);
+    }
+
+    public Planet ReturnPlanetFromGameObject(GameObject go)
+    {
+        if (planetToGameObjectMap.ContainsValue(go))
+        {
+            int index = planetToGameObjectMap.Values.ToList().IndexOf(go);
+            Planet planet = planetToGameObjectMap.Keys.ToList()[index];
+
+            return planet;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     /*
