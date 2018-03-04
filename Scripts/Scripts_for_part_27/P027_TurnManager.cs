@@ -7,6 +7,8 @@ public class TurnManager : MonoBehaviour {
 
 	public static TurnManager turnManagerInstance;
 
+	public FleetManager fm;
+
 	public Button endTurnButton;
 	public Text turnText;
 
@@ -41,6 +43,22 @@ public class TurnManager : MonoBehaviour {
 	{
 		for(int i = 0; i<PlayerManager.PlayerManagerInstance.ownedPlanets.Count; i++)
 		{
+			Planet planet = PlayerManager.PlayerManagerInstance.ownedPlanets[i];
+
+			if (planet.starBase != null && planet.starBase.buildCue.Count !=0)
+			{
+				planet.starBase.currentProduction += planet.production;
+
+				if (planet.starBase.currentProduction >= planet.starBase.buildCue[0].productionValue)
+				{
+					float difference = planet.starBase.currentProduction - planet.starBase.buildCue[0].productionValue;
+					planet.starBase.currentProduction = difference;
+
+					fm.BuildShip();
+					planet.starBase.buildCue.Remove(planet.starBase.buildCue[0]);
+					
+				}
+			}
 
 		}
 	}
