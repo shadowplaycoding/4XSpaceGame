@@ -29,6 +29,11 @@ public class TurnManager : MonoBehaviour {
 		endTurnButton.interactable = false;
 
 		UpdateTurnText();
+
+		ApplyProduction();
+		GUIManagementScript.GUIManagerInstance.UpdateShipProductionUI();
+
+
 		endTurnButton.interactable = true;
 	}
 
@@ -45,6 +50,8 @@ public class TurnManager : MonoBehaviour {
 		{
 			Planet planet = PlayerManager.PlayerManagerInstance.ownedPlanets[i];
 
+			Debug.Log("Current Production Is: " + planet.starBase.currentProduction);
+
 			if (planet.starBase != null && planet.starBase.buildCue.Count !=0)
 			{
 				planet.starBase.currentProduction += planet.production;
@@ -58,9 +65,11 @@ public class TurnManager : MonoBehaviour {
 					planet.starBase.buildCue.Remove(planet.starBase.buildCue[0]);
 					
 				}
-			}
 
+				
+			}
 		}
+
 	}
 
 	/*

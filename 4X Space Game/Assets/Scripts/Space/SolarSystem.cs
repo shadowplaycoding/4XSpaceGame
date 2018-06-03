@@ -25,14 +25,20 @@ public class SolarSystem : MonoBehaviour {
 
     Dictionary<Planet, GameObject> planetToGameObjectMap;
 
+	public Planet currentPlanet { get; protected set;}
+
     void OnEnable()
     {
         SolarSystemInstance = this;
         galaxyViewButton.interactable = false;
         buildShipButton.interactable = false;
-
-        fleetManager = GameObject.Find("Fleets").GetComponent<FleetManager>();
     }
+
+	void Awake()
+	{
+		currentPlanet = null;
+		fleetManager = GameObject.Find("Fleets").GetComponent<FleetManager>();
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -68,6 +74,7 @@ public class SolarSystem : MonoBehaviour {
                 {
                     Debug.Log(planet.planetName + " " + planet.planetType);
                     GUIManagementScript.GUIManagerInstance.planetPanel.SetActive(true);
+					currentPlanet = planet;
 
                     if (planet.starBase != null)
                     {

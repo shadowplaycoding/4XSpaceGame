@@ -33,6 +33,11 @@ public class FleetManager : MonoBehaviour {
                 + " Credits and " + PlayerManager.PlayerManagerInstance.playerResources.minerals + " Minerals");
 
             Ship ship = new Ship("Ship " + shipCount, 10, 10);
+			SolarSystem.SolarSystemInstance.currentPlanet.starBase.buildCue.Add(ship);
+
+			GUIManagementScript.GUIManagerInstance.UpdateShipProductionUI();
+
+
             Fleet fleet = new Fleet("Fleet " + (fleetList.Count + 1), ship);
 
             fleetList.Add(fleet);

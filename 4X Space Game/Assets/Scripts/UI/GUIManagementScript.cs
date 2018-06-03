@@ -12,11 +12,18 @@ public class GUIManagementScript : MonoBehaviour {
     public GameObject planetPanel;
     public GameObject starBasePanel;
 
+	GameObject content;
+
     void OnEnable()
     {
         GUIManagerInstance = this;
         namePlates = new List<GameObject>();
     }
+
+	void Awake()
+	{
+		content = starBasePanel.GetComponentInChildren<VerticalLayoutGroup>().gameObject;
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -44,7 +51,28 @@ public class GUIManagementScript : MonoBehaviour {
 
 	}
 
-    /*
+	public void UpdateShipProductionUI()
+	{
+
+		Planet planet = SolarSystem.SolarSystemInstance.currentPlanet;
+
+		if (planet.production > 0)
+		{
+			for (int i = 0; i < content.transform.childCount; i++)
+			{
+				Text[] texts = content.transform.GetChild(i).GetComponentsInChildren<Text>();
+
+				Ship ship = planet.starBase.buildCue[i];
+
+				int numberOfTurns = Mathf.CeilToInt((ship.productionValue - planet.starBase.currentProduction) / planet.production);
+
+				texts[texts.Length - 1].text = numberOfTurns.ToString();
+			}
+
+		}
+	}
+
+	/*
     Copyright Shadowplay Coding 2017 - see www.shadowplaycoding.com for licensing details
     Removing this comment forfits any rights given to the user under licensing.
     */
