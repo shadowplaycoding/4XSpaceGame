@@ -31,8 +31,6 @@ public class TurnManager : MonoBehaviour {
 		UpdateTurnText();
 
 		ApplyProduction();
-		GUIManagementScript.GUIManagerInstance.UpdateShipProductionUI();
-
 
 		endTurnButton.interactable = true;
 	}
@@ -63,10 +61,10 @@ public class TurnManager : MonoBehaviour {
 
 					fm.BuildShip();
 					planet.starBase.buildCue.Remove(planet.starBase.buildCue[0]);
-					
+					GUIManagementScript.GUIManagerInstance.RemoveButtonFromCue();
 				}
 
-				
+				GUIManagementScript.GUIManagerInstance.UpdateShipProductionUI();
 			}
 		}
 

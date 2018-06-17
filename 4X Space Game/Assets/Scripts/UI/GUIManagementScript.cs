@@ -53,8 +53,11 @@ public class GUIManagementScript : MonoBehaviour {
 
 	public void UpdateShipProductionUI()
 	{
-
 		Planet planet = SolarSystem.SolarSystemInstance.currentPlanet;
+
+		float totalProduction = 0;
+
+		Debug.ClearDeveloperConsole();
 
 		if (planet.production > 0)
 		{
@@ -64,12 +67,20 @@ public class GUIManagementScript : MonoBehaviour {
 
 				Ship ship = planet.starBase.buildCue[i];
 
-				int numberOfTurns = Mathf.CeilToInt((ship.productionValue - planet.starBase.currentProduction) / planet.production);
+				int numberOfTurns = Mathf.CeilToInt(((ship.productionValue - planet.starBase.currentProduction) + totalProduction) / planet.production);
 
 				texts[texts.Length - 1].text = numberOfTurns.ToString();
-			}
 
+				totalProduction += ship.productionValue;
+			}
 		}
+	}
+
+	public void RemoveButtonFromCue()
+	{
+		Transform topButton = content.transform.GetChild(0);
+		topButton.transform.SetParent(null);
+		Destroy(topButton.gameObject);	
 	}
 
 	/*
