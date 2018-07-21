@@ -366,6 +366,7 @@ public class Galaxy : MonoBehaviour {
         {
             starData.starOwned = true;
             starData.planetList[0].planetColonised = true;
+			starData.planetList[0].starBase = new StarBase();
 			PlayerManager.PlayerManagerInstance.ownedPlanets.Add(starData.planetList[0]);
         }
     }

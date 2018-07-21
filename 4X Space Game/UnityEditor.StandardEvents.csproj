@@ -293,7 +293,7 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.1.1f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>C:/Users/Tom/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.7/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>C:/Users/Tom/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/Tom/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
@@ -301,11 +301,8 @@
     <Reference Include="UnityEditor.Analytics">
       <HintPath>C:/Users/Tom/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/Editor/UnityEditor.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/Tom/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.1/UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>C:/Users/Tom/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.1/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/Tom/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/Tom/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
@@ -352,15 +349,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Data\Name_Lists\Systems\starNames1.txt" />
-    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Dark.uss" />
-    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Light.uss" />
-    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\Alert.uxml" />
-    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\PackageDetails.uxml" />
-    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\PackageGroup.uxml" />
-    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\PackageItem.uxml" />
-    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\PackageList.uxml" />
-    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\PackageManagerWindow.uxml" />
-    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\PackageSearchFilterTabs.uxml" />
+    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.9.11\Editor\Resources\Styles\Main_Dark.uss" />
+    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.9.11\Editor\Resources\Styles\Main_Light.uss" />
+    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.9.11\Editor\Resources\Templates\Alert.uxml" />
+    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.9.11\Editor\Resources\Templates\PackageDetails.uxml" />
+    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.9.11\Editor\Resources\Templates\PackageGroup.uxml" />
+    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.9.11\Editor\Resources\Templates\PackageItem.uxml" />
+    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.9.11\Editor\Resources\Templates\PackageList.uxml" />
+    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.9.11\Editor\Resources\Templates\PackageManagerWindow.uxml" />
+    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.9.11\Editor\Resources\Templates\PackageSearchFilterTabs.uxml" />
+    <None Include="C:\Users\Tom\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.9.11\Editor\Resources\Templates\PackagesLoading.uxml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

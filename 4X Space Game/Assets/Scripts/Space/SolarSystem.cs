@@ -73,6 +73,7 @@ public class SolarSystem : MonoBehaviour {
                 if (planet != null)
                 {
                     Debug.Log(planet.planetName + " " + planet.planetType);
+					Debug.Log("Credits: " + planet.planetResources.credits + " Minerals: " + planet.planetResources.minerals + " Food: " + planet.planetResources.food);
                     GUIManagementScript.GUIManagerInstance.planetPanel.SetActive(true);
 					currentPlanet = planet;
 

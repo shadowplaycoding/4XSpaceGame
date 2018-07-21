@@ -17,43 +17,45 @@ public class FleetManager : MonoBehaviour {
         fleetToObjectMap = new Dictionary<Fleet, GameObject>();	
 	}
 
-    public void BuildShip()
-    {
-        if (PlayerManager.PlayerManagerInstance.playerResources.credits >=10
-            &&
-            PlayerManager.PlayerManagerInstance.playerResources.minerals >= 10)
-        {
-            // Subtract 10 Credits
-            PlayerManager.PlayerManagerInstance.playerResources.SubtractResource(1, 10);
+	public void CreateShip()
+	{
+		if (PlayerManager.PlayerManagerInstance.playerResources.credits >= 10
+		&&
+		PlayerManager.PlayerManagerInstance.playerResources.minerals >= 10)
+		{
+			// Subtract 10 Credits
+			PlayerManager.PlayerManagerInstance.playerResources.SubtractResource(1, 10);
 
-            // Subtract 10 Minerals
-            PlayerManager.PlayerManagerInstance.playerResources.SubtractResource(2, 10);
+			// Subtract 10 Minerals
+			PlayerManager.PlayerManagerInstance.playerResources.SubtractResource(2, 10);
 
-            Debug.Log("You now have: " + PlayerManager.PlayerManagerInstance.playerResources.credits
-                + " Credits and " + PlayerManager.PlayerManagerInstance.playerResources.minerals + " Minerals");
+			Debug.Log("You now have: " + PlayerManager.PlayerManagerInstance.playerResources.credits
+				+ " Credits and " + PlayerManager.PlayerManagerInstance.playerResources.minerals + " Minerals");
 
-            Ship ship = new Ship("Ship " + shipCount, 10, 10);
+			Ship ship = new Ship("Ship " + shipCount, 10, 10);
 			SolarSystem.SolarSystemInstance.currentPlanet.starBase.buildCue.Add(ship);
 
 			GUIManagementScript.GUIManagerInstance.UpdateShipProductionUI();
+		}
+		else
+		{
+			Debug.Log("Not Enough Resourses!");
+		}
+	}
 
 
-            Fleet fleet = new Fleet("Fleet " + (fleetList.Count + 1), ship);
+	public void BuildShip(Ship ship)
+    {
+        Fleet fleet = new Fleet("Fleet " + (fleetList.Count + 1), ship);
 
-            fleetList.Add(fleet);
+        fleetList.Add(fleet);
 
-            GameObject shipObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            shipObject.transform.position = PositionMath.RandomPosition(-50, 50);
-            shipObject.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
-            shipObject.transform.parent = this.transform;
+        GameObject shipObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        shipObject.transform.position = PositionMath.RandomPosition(-50, 50);
+        shipObject.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
+        shipObject.transform.parent = this.transform;
 
-            fleetToObjectMap.Add(fleet, shipObject);
-
-        }
-        else
-        {
-            Debug.Log("Not Enough Resourses!");
-        }
+        fleetToObjectMap.Add(fleet, shipObject);
     }
 
     public void DestroyShip()

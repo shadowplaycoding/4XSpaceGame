@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ResourceType { Food, Minerals, Credits }
+
 public class Resources {
 
     public int credits { get; set; }
@@ -42,6 +44,28 @@ public class Resources {
                 break;
         }
     }
+
+	public void AddResource(ResourceType type, int amount)
+	{
+		switch (type)
+		{
+			case ResourceType.Food:
+				this.food += amount;
+				break;
+
+			case ResourceType.Minerals:
+				this.minerals += amount;
+				break;
+
+			case ResourceType.Credits:
+				this.credits += amount;
+				break;
+
+			default:
+				Debug.LogError("Unknown Resource!");
+				break;
+		}
+	}
 
     // Subtracts an amount to a resource
     // 0 = all resources

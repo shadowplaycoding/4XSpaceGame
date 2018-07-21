@@ -31,6 +31,7 @@ public class TurnManager : MonoBehaviour {
 		UpdateTurnText();
 
 		ApplyProduction();
+		ApplyResources();
 
 		endTurnButton.interactable = true;
 	}
@@ -44,9 +45,11 @@ public class TurnManager : MonoBehaviour {
 
 	void ApplyProduction()
 	{
-		for(int i = 0; i<PlayerManager.PlayerManagerInstance.ownedPlanets.Count; i++)
+		for(int i = 0; i < PlayerManager.PlayerManagerInstance.ownedPlanets.Count; i++)
 		{
 			Planet planet = PlayerManager.PlayerManagerInstance.ownedPlanets[i];
+
+			Debug.Log(PlayerManager.PlayerManagerInstance.ownedPlanets[i].planetName);
 
 			Debug.Log("Current Production Is: " + planet.starBase.currentProduction);
 
@@ -59,7 +62,7 @@ public class TurnManager : MonoBehaviour {
 					float difference = planet.starBase.currentProduction - planet.starBase.buildCue[0].productionValue;
 					planet.starBase.currentProduction = difference;
 
-					fm.BuildShip();
+					fm.BuildShip(planet.starBase.buildCue[0]);
 					planet.starBase.buildCue.Remove(planet.starBase.buildCue[0]);
 					GUIManagementScript.GUIManagerInstance.RemoveButtonFromCue();
 				}
@@ -68,6 +71,22 @@ public class TurnManager : MonoBehaviour {
 			}
 		}
 
+	}
+
+	void ApplyResources()
+	{
+		for(int i = 0; i < PlayerManager.PlayerManagerInstance.ownedPlanets.Count; i++)
+		{
+			Planet planet = PlayerManager.PlayerManagerInstance.ownedPlanets[i];
+
+			PlayerManager.PlayerManagerInstance.playerResources.AddResource(ResourceType.Food, planet.planetResources.food);
+			PlayerManager.PlayerManagerInstance.playerResources.AddResource(ResourceType.Minerals, planet.planetResources.minerals);
+			PlayerManager.PlayerManagerInstance.playerResources.AddResource(ResourceType.Credits, planet.planetResources.credits);
+
+			Debug.Log("Credits: " + PlayerManager.PlayerManagerInstance.playerResources.credits 
+				+ " Minerals: " + PlayerManager.PlayerManagerInstance.playerResources.minerals 
+				+ " Food: " + PlayerManager.PlayerManagerInstance.playerResources.food);
+		}
 	}
 
 	/*

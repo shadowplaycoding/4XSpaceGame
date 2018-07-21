@@ -55,9 +55,11 @@ public class GUIManagementScript : MonoBehaviour {
 	{
 		Planet planet = SolarSystem.SolarSystemInstance.currentPlanet;
 
+		Debug.Log(planet);
+
 		float totalProduction = 0;
 
-		Debug.ClearDeveloperConsole();
+		//Debug.ClearDeveloperConsole();
 
 		if (planet.production > 0)
 		{
