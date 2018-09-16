@@ -95,4 +95,9 @@ public class Resources {
                 break;
         }
     }
+
+	/*
+	Copyright Shadowplay Coding 2018 - see www.shadowplaycoding.com for licensing details
+	Removing this comment forfits any rights given to the user under licensing.
+	*/
 }

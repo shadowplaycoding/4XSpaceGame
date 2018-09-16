@@ -36,9 +36,6 @@ public class Planet {
 	}
 
 
-
-
-
     /*
    Copyright Shadowplay Coding 2017 - see www.shadowplaycoding.com for licensing details
    Removing this comment forfits any rights given to the user under licensing.

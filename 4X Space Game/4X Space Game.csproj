@@ -329,6 +329,7 @@
     <Compile Include="Assets\Scripts\UI\ClearBlueprintButton.cs" />
     <Compile Include="Assets\Scripts\UI\CloseUI.cs" />
     <Compile Include="Assets\Scripts\UI\GUIManagementScript.cs" />
+    <Compile Include="Assets\Scripts\UI\UIResourceManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Data\Name_Lists\Systems\starNames1.txt" />

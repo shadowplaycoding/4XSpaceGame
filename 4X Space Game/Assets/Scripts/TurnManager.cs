@@ -22,6 +22,7 @@ public class TurnManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		turnNumber = 0;
+		UpdateResourceText();
 	}
 
 	public void EndTurn()
@@ -32,6 +33,8 @@ public class TurnManager : MonoBehaviour {
 
 		ApplyProduction();
 		ApplyResources();
+
+		UpdateResourceText();
 
 		endTurnButton.interactable = true;
 	}
@@ -87,6 +90,13 @@ public class TurnManager : MonoBehaviour {
 				+ " Minerals: " + PlayerManager.PlayerManagerInstance.playerResources.minerals 
 				+ " Food: " + PlayerManager.PlayerManagerInstance.playerResources.food);
 		}
+	}
+
+	public void UpdateResourceText()
+	{
+		UIResourceManager.instance.UpdateText(UIResourceManager.instance.creditsText, PlayerManager.PlayerManagerInstance.playerResources.credits);
+		UIResourceManager.instance.UpdateText(UIResourceManager.instance.mineralsText, PlayerManager.PlayerManagerInstance.playerResources.minerals);
+		UIResourceManager.instance.UpdateText(UIResourceManager.instance.foodText, PlayerManager.PlayerManagerInstance.playerResources.food);
 	}
 
 	/*

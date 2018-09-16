@@ -26,6 +26,7 @@ public class PlayerManager : MonoBehaviour {
         // Start game with 100 of each resource 
         playerResources = new Resources(100, 100, 100);
         Debug.Log("Starting the Game with: " + playerResources.credits + " Credits, " + playerResources.minerals + " Minerals and " + playerResources.food + " Food.");
+		TurnManager.turnManagerInstance.UpdateResourceText();
 		
 	}
 	
@@ -35,7 +36,7 @@ public class PlayerManager : MonoBehaviour {
 	}
 
     /*
-    Copyright Shadowplay Coding 2017 - see www.shadowplaycoding.com for licensing details
+    Copyright Shadowplay Coding 2018 - see www.shadowplaycoding.com for licensing details
     Removing this comment forfits any rights given to the user under licensing.
     */
 }
